@@ -1,13 +1,3 @@
-TOP 3 RISKS - DRIVEASY RENTALS
-
-1. Open IPP Port (631/tcp)
-The IPP service is listening on port 631. If printing is not required, this service should be disabled to reduce the attack surface.
-
-2. Service Version Unknown
-The baseline scan identified IPP but did not detect its exact software version. Further service detection is needed.
-
 3. Limited Scan Scope
-The scan tested localhost (127.0.0.1) and the default 1000 TCP ports only. A separate authorized network scan is needed to assess network exposure.
 
-CONCLUSION:
-One open TCP port (631/tcp) was identified. These findings will help guide further security checks and server hardening.
+The baseline scan tested localhost (127.0.0.1) and Nmap's default 1,000 most common TCP ports. It provides an initial view of local services, not a complete assessment of every port or the wider network.
