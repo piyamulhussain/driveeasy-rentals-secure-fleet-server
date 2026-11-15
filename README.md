@@ -19,7 +19,7 @@ This project documents the setup and baseline security assessment of an Ubuntu v
 
 ## Baseline Scan
 Command used:
-`nmap -oN baseline-scan.txt 127.0.0.1`
+nmap -oN baseline-scan.txt 127.0.0.1
 
 ### Scan Result
 - Host: 127.0.0.1
@@ -28,12 +28,24 @@ Command used:
 - Service: IPP
 - Closed TCP Ports: 999
 
+## Service Version Detection
+Command used:
+nmap -sV -p 631 -oN service-version-scan.txt 127.0.0.1
+
+### Result
+- Port: 631/tcp
+- State: Open
+- Service: IPP
+- Detected software: CUPS 2.4
+
 ## Project Files
-- `baseline-scan.txt` — Nmap baseline scan output.
-- `top-3-risks.txt` — Initial risk summary.
+- README.md — Project overview, setup details, and scan summary.
+- baseline-scan.txt — Initial Nmap baseline scan output.
+- service-version-scan.txt — Nmap service version detection output for port 631.
+- top-3-risks.txt — Initial risk summary.
 
 ## Security Note
 All testing was performed against my own local virtual machine in an isolated lab environment.
 
 ## Next Steps
-Review unnecessary services, identify service versions, and apply appropriate server-hardening measures.
+Review whether the CUPS printing service is required, restrict access if necessary, and apply appropriate server-hardening measures.
