@@ -1,3 +1,32 @@
-3. Limited Scan Scope
+# Top 3 Risks Identified - DriveEasy Rentals
 
-The baseline scan tested localhost (127.0.0.1) and Nmap's default 1,000 most common TCP ports. It provides an initial view of local services, not a complete assessment of every port or the wider network.
+Scan Date: November 16, 2026  
+Scan Time: 20:23:42 PKT  
+Target: 127.0.0.1  
+Tool: Nmap 7.98
+
+## 1. SSH Service - Port 22
+
+**Risk:** SSH provides remote login access. If access is not properly restricted, unauthorized login attempts may be a concern.
+
+**Recommendation:** Use strong authentication, restrict access to trusted systems, and keep SSH updated.
+
+## 2. HTTP Service - Port 80
+
+**Risk:** The HTTP web service is accessible locally. Unencrypted HTTP may expose web traffic if used beyond the local lab.
+
+**Recommendation:** Use HTTPS for production access and maintain secure Apache configuration.
+
+## 3. MySQL Service - Port 3306
+
+**Risk:** The MySQL service is listening on 127.0.0.1:3306. Database access should remain restricted to trusted systems.
+
+**Recommendation:** Keep MySQL bound to localhost unless remote access is required, and use strong database credentials.
+
+## Additional Finding
+
+Port 631/tcp - IPP (printing service) was also detected as open during the baseline scan.
+
+## Note
+
+These are potential risks based on exposed services identified by the Nmap baseline scan. No vulnerability was confirmed by this scan.
