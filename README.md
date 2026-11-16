@@ -58,7 +58,6 @@ These are potential service-related risks identified during the baseline scan. N
 - `baseline-scan.txt` — Nmap baseline scan output.
 - `top-3-risks.txt` — Summary of three potential risks.
 - `service-version-scan.txt` — Service version scan output.
-- `full-port-scan.txt` — Full TCP port scan output.
 
 ## Security Note
 This assessment was performed in a local virtual lab environment. Services should be securely configured, access should be restricted, and software should be kept updated.
