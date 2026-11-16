@@ -29,7 +29,7 @@ This project documents the setup and baseline security assessment of an Ubuntu v
 
 Command used:
 
-`nmap -oN baseline-scan.txt 127.0.0.1`
+`nmap -sV -oN baseline-scan.txt 127.0.0.1`
 
 ### Scan Results
 - Target: 127.0.0.1
@@ -37,14 +37,15 @@ Command used:
 - Open TCP Ports: 22, 80, 631, 3306
 - Closed TCP Ports: 996
 - Scan Date: November 16, 2026
-- Scan Time: 20:23:42 PKT
+- Scan Time: 20:57:54 PKT
+- Service Version Detection: Enabled
 
-| Port | Service | Description |
+| Port | Service | Detected Version |
 |---|---|---|
-| 22/tcp | SSH | Remote login service |
-| 80/tcp | HTTP | Apache web service |
-| 631/tcp | IPP | Printing service |
-| 3306/tcp | MySQL | Database service |
+| 22/tcp | SSH | OpenSSH 10.2p1 Ubuntu 2ubuntu3.8 |
+| 80/tcp | HTTP | Apache httpd 2.4.66 |
+| 631/tcp | IPP | CUPS 2.4 |
+| 3306/tcp | MySQL | MySQL 8.4.13-0ubuntu0.26.04.2 |
 
 ## Top Three Risks
 1. **SSH (Port 22):** Remote login access should be restricted to trusted users and systems.
@@ -55,7 +56,7 @@ These are potential service-related risks identified during the baseline scan. N
 
 ## Project Files
 - `README.md` — Project overview, setup details, and scan results.
-- `baseline-scan.txt` — Nmap baseline scan output.
+- `baseline-scan.txt` — Nmap baseline scan output with service version detection.
 - `top-3-risks.txt` — Summary of three potential risks.
 - `service-version-scan.txt` — Service version scan output.
 
