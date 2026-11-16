@@ -1,11 +1,13 @@
-# Nmap 7.98 scan initiated Mon Nov 16 20:23:42 2026 as: nmap -oN baseline-scan.txt 127.0.0.1
+# Nmap 7.98 scan initiated Mon Nov 16 20:57:54 2026 as: nmap -sV -oN baseline-scan.txt 127.0.0.1
 Nmap scan report for localhost (127.0.0.1)
-Host is up (0.00025s latency).
+Host is up (0.00011s latency).
 Not shown: 996 closed tcp ports (conn-refused)
-PORT     STATE SERVICE
-22/tcp   open  ssh
-80/tcp   open  http
-631/tcp  open  ipp
-3306/tcp open  mysql
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 10.2p1 Ubuntu 2ubuntu3.8 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http    Apache httpd 2.4.66 ((Ubuntu))
+631/tcp  open  ipp     CUPS 2.4
+3306/tcp open  mysql   MySQL 8.4.13-0ubuntu0.26.04.2
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-# Nmap done at Mon Nov 16 20:23:43 2026 -- 1 IP address (1 host up) scanned in 0.12 seconds
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Nov 16 20:58:01 2026 -- 1 IP address (1 host up) scanned in 6.79 seconds
