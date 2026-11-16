@@ -26,13 +26,18 @@ This project documents the setup and baseline security assessment of an Ubuntu v
 - MySQL Community Server
 
 ## Baseline Scan
+
 Command used:
+
 `nmap -oN baseline-scan.txt 127.0.0.1`
 
-### Scan Result
+### Scan Results
 - Target: 127.0.0.1
 - Host Status: Up
 - Open TCP Ports: 22, 80, 631, 3306
+- Closed TCP Ports: 996
+- Scan Date: November 16, 2026
+- Scan Time: 20:23:42 PKT
 
 | Port | Service | Description |
 |---|---|---|
@@ -41,13 +46,19 @@ Command used:
 | 631/tcp | IPP | Printing service |
 | 3306/tcp | MySQL | Database service |
 
-- Closed TCP Ports: 996
-- Scan Date and Time: November 16, 2026, 20:23:42 PKT
+## Top Three Risks
+1. **SSH (Port 22):** Remote login access should be restricted to trusted users and systems.
+2. **HTTP (Port 80):** Unencrypted HTTP traffic may expose information if used outside the local lab.
+3. **MySQL (Port 3306):** Database access should remain restricted to localhost or trusted systems.
+
+These are potential service-related risks identified during the baseline scan. No vulnerability was confirmed by this scan.
 
 ## Project Files
+- `README.md` — Project overview, setup details, and scan results.
 - `baseline-scan.txt` — Nmap baseline scan output.
-- `top-3-risks.txt` — Summary of three potential service-related risks.
+- `top-3-risks.txt` — Summary of three potential risks.
 - `service-version-scan.txt` — Service version scan output.
+- `full-port-scan.txt` — Full TCP port scan output.
 
 ## Security Note
-This baseline scan identifies open services and potential exposure risks. It does not confirm vulnerabilities. Services should be restricted, configured securely, and regularly updated.
+This assessment was performed in a local virtual lab environment. Services should be securely configured, access should be restricted, and software should be kept updated.
