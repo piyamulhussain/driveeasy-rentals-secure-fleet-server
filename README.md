@@ -1,32 +1,55 @@
-# Top 3 Risks Identified - DriveEasy Rentals
+# DriveEasy Rentals — Secure Fleet Management Server
 
-Scan Date: November 16, 2026
-Scan Time: 20:57:54 PKT
-Target: 127.0.0.1
-Tool: Nmap 7.98
+## Project Overview
+This project documents the setup and baseline security assessment of an Ubuntu virtual machine for DriveEasy Rentals.
 
-## 1. CUPS Printing Service - Port 631
+## Virtual Machine Setup
+- Operating System: Ubuntu 26.04.1 LTS
+- Release: 26.04
+- Codename: resolute
+- Virtualization: Oracle VirtualBox 7.2.22
+- VM Name: DriveEasy-Ubuntu-Server
+- Host-only IP Address: 192.168.56.103
+- Username: piyam-ul-hussain
+- Password: Not included for security reasons
+- Network: Host-only Adapter + NAT
 
-Risk: The CUPS printing service is running even though printing is not required for a fleet management server. If accessible to an attacker, it may expose printer and service information, allow unauthorized print-job operations depending on permissions, or expose sensitive information in queued documents. It may also be misused to consume system resources.
+## Tools Used
+- Nmap 7.98
+- Ubuntu Terminal
+- VirtualBox
 
-Recommendation: Disable the printing service if it is not required. Otherwise, restrict access to trusted systems and keep CUPS updated.
+## Services Configured
+- SSH Server
+- Apache2 Web Server
+- MySQL Community Server
 
-## 2. SSH Service - Port 22
+## Baseline Scan
 
-Risk: SSH provides remote login access. If access is not properly restricted, unauthorized login attempts may be a concern.
+Command used:
 
-Recommendation: Use strong authentication, restrict access to trusted systems, and keep SSH updated.
+`nmap -sV -oN baseline-scan.txt 127.0.0.1`
 
-## 3. MySQL Service - Port 3306
+### Scan Results
+- Target: 127.0.0.1
+- Host Status: Up
+- Open TCP Ports: 22, 80, 631, 3306
+- Closed TCP Ports: 996
+- Scan Date: November 16, 2026
+- Scan Time: 20:57:54 PKT
 
-Risk: The MySQL database service may expose sensitive database information if unauthorized users gain access.
+| Port | Service | Detected Version |
+|---|---|---|
+| 22/tcp | SSH | OpenSSH 10.2p1 Ubuntu 2ubuntu3.8 |
+| 80/tcp | HTTP | Apache httpd 2.4.66 |
+| 631/tcp | IPP | CUPS 2.4 |
+| 3306/tcp | MySQL | MySQL 8.4.13-0ubuntu0.26.04.2 |
 
-Recommendation: Keep MySQL bound to localhost unless remote access is required, and use strong database credentials.
+## Project Files
+- `README.md` — VM setup and scan documentation.
+- `baseline-scan.txt` — Nmap baseline scan output.
+- `top-3-risks.txt` — Summary of three potential risks.
+- `service-version-scan.txt` — Service version scan output.
 
-## Additional Finding
-
-Port 80/tcp - Apache HTTP web service was also detected as open. Unencrypted HTTP traffic may expose information if used outside the local lab.
-
-## Note
-
-These are potential risks based on services identified during the Nmap baseline scan. No vulnerability or unauthorized access was confirmed by this scan.
+## Security Note
+This assessment was performed in a local virtual lab environment. Services should be securely configured, access should be restricted, and software should be kept updated.
