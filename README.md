@@ -4,7 +4,10 @@
 This project documents the setup and baseline security assessment of an Ubuntu virtual machine for DriveEasy Rentals.
 
 ## Virtual Machine Setup
-- Operating System: Ubuntu Linux 26.04.1 LTS
+- Operating System: Ubuntu 26.04.1 LTS
+- Release: 26.04
+- Codename: resolute
+- Scan Date: November 16, 2026
 - Virtualization: Oracle VirtualBox 7.2.22
 - VM Name: DriveEasy-Ubuntu-Server
 - Host-only IP Address: 192.168.56.103
@@ -17,35 +20,34 @@ This project documents the setup and baseline security assessment of an Ubuntu v
 - Ubuntu Terminal
 - VirtualBox
 
+## Services Configured
+- SSH Server
+- Apache2 Web Server
+- MySQL Community Server
+
 ## Baseline Scan
 Command used:
-nmap -oN baseline-scan.txt 127.0.0.1
+`nmap -oN baseline-scan.txt 127.0.0.1`
 
 ### Scan Result
-- Host: 127.0.0.1
+- Target: 127.0.0.1
 - Host Status: Up
-- Open TCP Port: 631
-- Service: IPP
-- Closed TCP Ports: 999
+- Open TCP Ports: 22, 80, 631, 3306
 
-## Service Version Detection
-Command used:
-nmap -sV -p 631 -oN service-version-scan.txt 127.0.0.1
+| Port | Service | Description |
+|---|---|---|
+| 22/tcp | SSH | Remote login service |
+| 80/tcp | HTTP | Apache web service |
+| 631/tcp | IPP | Printing service |
+| 3306/tcp | MySQL | Database service |
 
-### Result
-- Port: 631/tcp
-- State: Open
-- Service: IPP
-- Detected software: CUPS 2.4
+- Closed TCP Ports: 996
+- Scan Date and Time: November 16, 2026, 20:23:42 PKT
 
 ## Project Files
-- README.md — Project overview, setup details, and scan summary.
-- baseline-scan.txt — Initial Nmap baseline scan output.
-- service-version-scan.txt — Nmap service version detection output for port 631.
-- top-3-risks.txt — Initial risk summary.
+- `baseline-scan.txt` — Nmap baseline scan output.
+- `top-3-risks.txt` — Summary of three potential service-related risks.
+- `service-version-scan.txt` — Service version scan output.
 
 ## Security Note
-All testing was performed against my own local virtual machine in an isolated lab environment.
-
-## Next Steps
-Review whether the CUPS printing service is required, restrict access if necessary, and apply appropriate server-hardening measures.
+This baseline scan identifies open services and potential exposure risks. It does not confirm vulnerabilities. Services should be restricted, configured securely, and regularly updated.
