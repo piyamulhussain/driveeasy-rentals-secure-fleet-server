@@ -1,8 +1,11 @@
-# Nmap 7.98 scan initiated Sat Nov 14 23:52:15 2026 as: nmap -oN baseline-scan.txt 127.0.0.1
+# Nmap 7.98 scan initiated Mon Nov 16 20:23:42 2026 as: nmap -oN baseline-scan.txt 127.0.0.1
 Nmap scan report for localhost (127.0.0.1)
-Host is up (0.00023s latency).
-Not shown: 999 closed tcp ports (conn-refused)
-PORT    STATE SERVICE
-631/tcp open  ipp
+Host is up (0.00025s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+631/tcp  open  ipp
+3306/tcp open  mysql
 
-# Nmap done at Sat Nov 14 23:52:15 2026 -- 1 IP address (1 host up) scanned in 0.15 seconds
+# Nmap done at Mon Nov 16 20:23:43 2026 -- 1 IP address (1 host up) scanned in 0.12 seconds
