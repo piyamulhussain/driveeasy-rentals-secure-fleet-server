@@ -1,0 +1,30 @@
+================================
+ DriveEasy Security Compliance
+================================
+
+[1] SSH Port Check
+PASS: SSH port is 2222
+
+[2] Root Login Check
+PASS: Root SSH login disabled
+
+[3] UFW Firewall Check
+PASS: UFW is active
+
+[4] Firewall Rules
+Status: active
+
+To                         Action      From
+--                         ------      ----
+2222/tcp                   ALLOW       Anywhere                  
+80/tcp                     ALLOW       Anywhere                  
+2222/tcp (v6)              ALLOW       Anywhere (v6)             
+80/tcp (v6)                ALLOW       Anywhere (v6)             
+
+
+[5] CUPS Port Check
+PASS: Port 631 is not listening
+
+================================
+ Compliance checks completed
+================================

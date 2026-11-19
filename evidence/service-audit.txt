@@ -1,0 +1,10 @@
+=== Service Audit ===
+cups.service: inactive | enabled: disabled
+cups.socket: inactive | enabled: disabled
+cups.path: inactive | enabled: disabled
+cups-browsed.service: inactive | enabled: disabled
+ModemManager.service: inactive | enabled: disabled
+openvpn.service: inactive | enabled: disabled
+bluetooth.service: inactive | enabled: enabled
+sssd.service: inactive | enabled: enabled
+avahi-daemon.service: active | enabled: enabled
